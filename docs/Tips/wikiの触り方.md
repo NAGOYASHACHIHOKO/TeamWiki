@@ -55,6 +55,7 @@ nav_order: 3
 markdown。
 [チュートリアル](https://qiita.com/ozin/items/0be04ada3e66eb88175d)とかを見ながら書きましょう。  
 既存のページを参考にしてもらうのが良いと思います。  
+[Jekyll の Markdown について](https://jekyll.otti.xyz/misc/markdown.html)  
 
 ## Tips
 - プレビュー表示  
