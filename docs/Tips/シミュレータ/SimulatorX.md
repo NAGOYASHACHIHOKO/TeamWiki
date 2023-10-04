@@ -201,8 +201,8 @@ sudo docker-compose ps
 [元](https://scutrobotlab.feishu.cn/wiki/XoYjwiKk7if73qksRSscpLUSnqf)  
 
 ## 変更履歴  
-日付       | 内容
---------   | --------
-2023-10-02 | 公開、RMUC2023について記載
-2023-10-04 | RMUL2023について追記、歩兵の種別について追記
+日付       | 内容  
+--------   | --------  
+2023-10-02 | 公開、RMUC2023について記載  
+2023-10-04 | RMUL2023について追記、歩兵の種別について追記  
 
