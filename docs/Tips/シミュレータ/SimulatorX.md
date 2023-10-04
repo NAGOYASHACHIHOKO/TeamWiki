@@ -9,10 +9,12 @@ nav_order: 3
 華南理工大学の製作しているシミュレータ、とりあえず知る限り最強  
 
 ## ToDo  
-- 操作対応表を作成する  
-- サーバー落ちの原因解明  
-- 歩兵の種別、金銭の設定の意味を知る  
-- RMUL2023もプレイできるようになりたい  
+- [ ] 操作対応表を作成する  
+- [ ] サーバー落ちの原因解明  
+- [x] 歩兵の種別の意味を知る  
+- [ ] 金銭の設定の意味を知る  
+- [x] RMUL2023もプレイできるようになりたい  
+- [ ] 記事が長すぎる気がするので、ULとUCで分けたいかも  
 
 ## 各種リンク  
 しっかり読めればこれらから全てを理解できるはず  
@@ -43,7 +45,8 @@ nav_order: 3
 基本的には各ロボット、もしくは審判が観客を選択し、左上のStartを押下することで試合に参加することが出来ます。  
 歩兵のみ種別があり、ロボットの隣にある横三角形を押下することで選択することが出来ます。  
 <img src='img/SimulatorX_2023-10-02-12-24-09.png' width='400'>  
-左から通常歩兵、バランシング歩兵、不明、不明です。  
+左から脚なしバランシング歩兵、脚ありバランシング歩兵、4輪バランシング歩兵、4輪歩兵です。  
+4輪バランシングのみが完全にサポートされているバランシング歩兵で、それ以外のバランス歩兵は8台以上になると激しいラグが発生するらしいです。  
 また、中央上部からマネーの設定が出来ます。  
 <img src='img/SimulatorX_2023-10-02-12-25-12.png' width='400'>  
 これが増える量なのか初期値なのかは不明です。  
@@ -96,6 +99,109 @@ nav_order: 3
 終了すると再度起動しなくては行けない他、偶に何度再起動してもクラッシュすることがあります。  
 原因は不明ですが、試合の度にサーバーを立て直し、クラッシュするようになったら改めてサーバーを解凍することで解決できます。  
 
+## RMUL2023の導入  
+### クライアントの導入  
+[ダウンロードサイト](https://dl.sim.scutbot.cn/SimulatorX%20%5B2023UL%5D/)からSimulatorXInstaller_1.1.1.7_Beta.exeをダウンロードし実行するとインストールできます。zip版をダウンロードして解凍しても良いです。  
+起動時の警告やファイアウォールはUC版と同様にすべて許可します  
+### サーバーの導入  
+RMULのサーバーだけubuntu20.04で動作させています。  
+詳細は[ここ](https://scutrobotlab.feishu.cn/wiki/wikcnRiq42a2Q1RJ23UlFrJZsfb)  
+
+以下、特に明記しないものは全てbash   
+```sh
+#dockerのインストール
+sudo apt update
+sudo apt install -y docker-compose
+#サーバー用フォルダ作成  
+mkdir ~/SimulatorX
+cd ~/SimlatorX
+#dockerの設定ファイル記述
+vi docker-compose.yml
+```
+docker-compose.ymlの中身  
+```yml
+version: "3"
+services:
+  SimulatorX-2023ul:
+    container_name: SimulatorX-2023ul
+    image: scutrobot/2023ul:beta-1.1.1.7
+    volumes:
+      - ./config:/root/config
+      - ./log:/var/log/simulatorx
+    restart: always
+    network_mode: "host"
+```
+imageは[ここ](https://scutrobotlab.feishu.cn/wiki/wikcnWpFhzcVz9i1xHb0hoXKWWc)とかを参照  
+```sh
+#コンフィグの作成
+mkdir ~/SimulatorX/config
+vi ~/SimulatorX/config/config.yml
+```
+config.yml 中身
+```yml
+domain: 192.168.11.5
+server_name: example_server
+rooms:
+  default:
+    port:
+      - 5333-5334
+    name: "example_room"
+    password: "423987"
+```
+domainにはPCのIPアドレスを入力、パスワードはクライアントがルームに入る際に用いるものとなる。ちなみにdomainは全く違うIPでも動作を確認した。詳細は不明  
+```sh
+#コンテナ立ち上げ
+sudo docker-compose up -d
+#ログの表示
+sudo docker-compose logs
+#起動の確認
+sudo docker-compose ps
+#サーバーの実行
+tail -f log/example_server-example_room1\@5333.log
+```
+この状態でクライアントからサーバーに繋ぐことが出来る。  
+
+curlで"Couldn't resolve host"と出たら以下のように変更をする  
+```sh
+vim /etc/resolv.conf
+```
+resolv.conf内のnameserverを8.8.8.8に変更する  
+```
+nameserver 8.8.8.8
+```
+変更して再起動すると解決した  
+
+dockerを終了するにはdownコマンドを使う  
+```sh
+#コンテナを落とす
+sudo docker-compose down
+#落ちてることの確認
+sudo docker-compose ps
+```
+### クライアント側からの操作  
+クライアント側にはUCとは少し異なるメイン画面が立ち上がる  
+<img src='img/SimulatorX_2023-10-02-16-44-20.png' width='500'>  
+英語等には変更出来なさそう、右下の全屏でフルスクリーンとの切り替えが出来る。
+ロボットの操作等はRMUC2023とほぼ同じです。  
+
+#### 一人プレイをする場合
+何も入力をせずに白い方のボタンを押下すると一人での練習モードに入ります(サーバーは必要ありません)  
+
+#### 複数人プレイで部屋を立てる場合  
+サーバーを用いて複数人プレイする場合は、サーバーを同じネットワーク内で起動している状態で、名前のみ入力して部屋を作成します。  
+<img src='img/SimulatorX_2023-10-04-10-17-50.png' width='300'>  
+そうするとRMUCと同様に左上にトークンが表示されます。  
+
+#### 複数人プレイで部屋に入る場合  
+メイン画面で上からnickname、ルームのトークン、サーバーのパスワードを入力し部屋に入ります  
+<img src='img/SimulatorX_2023-10-04-10-22-01.png' width='300'>  
+これで同じ部屋に入れるはずです。  
+
 ## 操作方法表  
 [元](https://scutrobotlab.feishu.cn/wiki/XoYjwiKk7if73qksRSscpLUSnqf)  
 
+## 変更履歴  
+| 日付 | 内容 |
+| -------- | -------- |
+| 2023-10-02 | 公開、RMUC2023について記載 |
+| 2023-10-04 | RMUL2023について追記、歩兵の種別について追記 |
