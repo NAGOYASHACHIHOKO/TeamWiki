@@ -205,10 +205,3 @@ sudo docker-compose ps
 |:--------|:--------|
 | 2023-10-02 | 公開、RMUC2023について記載|
 | 2023-10-04 | RMUL2023について追記、歩兵の種別について追記|
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
