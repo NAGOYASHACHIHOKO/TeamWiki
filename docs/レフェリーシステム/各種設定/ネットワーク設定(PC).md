@@ -3,7 +3,7 @@ layout: default
 title: ネットワーク設定(PC)
 parent: 各種設定
 grand_parent: レフェリーシステム
-nav_order: 3
+nav_order: 1
 ---
 # ネットワーク設定(PC)  
 大会用のクライアント・サーバーに接続する際にはネットワークの設定が必要  
