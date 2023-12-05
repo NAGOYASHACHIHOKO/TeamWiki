@@ -1,5 +1,1 @@
 remote_theme: just-the-docs/just-the-docs
-
-exclude:
-  - 過去機体.md
-  - 各種データへのリンク集.md
