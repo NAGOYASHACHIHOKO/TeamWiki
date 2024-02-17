@@ -61,3 +61,9 @@ tokenの平文保存はあまりお勧めできないですが、一番簡単な
 世の中には[credential.helper](https://qiita.com/mtkhs/items/919264a9b04b9ecc5d5a)というものもあるらしいので、この辺を活用してもらうと良いかと思います。  
 
 あと、PCが複数台あるときは端末ごとにトークンは分けた方が良い気がします(お気持ち)  
+
+## GitHubのプロになろう()  
+[GitHub Global Campus への応募](https://docs.github.com/ja/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student#github-global-campus-%E3%81%B8%E3%81%AE%E5%BF%9C%E5%8B%9F)を参考に申し込むと、学生向けのGitHub PROアカウントを貰える!!  
+たまに突き返されるらしいですが、恐らくac.jpドメインのメールと学生証があれば問題なく行けると思います。  
+君もGitHubのプロになろう()  
+<img src='img/git,githubの導入_2024-02-18-03-52-18.png' width='100'>  
