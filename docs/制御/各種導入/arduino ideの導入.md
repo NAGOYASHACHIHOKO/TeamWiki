@@ -58,3 +58,25 @@ SHACHIHOKOでメインで用いているteensyをArduino IDEに追加するた�
 
 恐らくこの2つ以外は標準で大丈夫なはず。。。  
 足りないものがあれば制御班に報告してください。  
+
+## 各プログラムの導入  
+現状、運用されているプログラムを手元にcloneします  
+変更等の作業を行う場合は[GitHubフローに従って](https://docs.github.com/ja/get-started/using-github/github-flow#github-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AB%E5%BE%93%E3%81%86)ください  
+RMUL2023プログラム(v6基板搭載のStandard Mk2プログラム)  
+```
+git clone https://github.com/RM-NAGOYASHACHIHOKO/RMUL2023_Program
+```  
+RM2024 歩兵プログラム  
+```
+git clone https://github.com/RM-NAGOYASHACHIHOKO/Mecanum_Standard
+```  
+RM2024 英雄プログラム  
+```
+git clone https://github.com/RM-NAGOYASHACHIHOKO/Mecanum_Hero
+```  
+RM2024 哨兵プログラム  
+```
+git clone https://github.com/RM-NAGOYASHACHIHOKO/Omni_Sentry
+```  
+
+gitの導入が済んでない人は[git,githubの導入](https://rm-nagoyashachihoko.github.io/TeamWiki/docs/%E5%88%B6%E5%BE%A1/%E5%90%84%E7%A8%AE%E5%B0%8E%E5%85%A5/git,github%E3%81%AE%E5%B0%8E%E5%85%A5.html)へ  
