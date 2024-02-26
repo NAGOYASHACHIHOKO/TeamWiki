@@ -3,7 +3,7 @@ layout: default
 title: WSL,ROSの導入
 parent: 各種導入
 grand_parent: 制御
-nav_order: 1
+nav_order: 3
 ---
 # WSL,ROSの導入  
 自動照準に用いているrosをLinux機以外でも行うため、WSLの活用をしています。  
@@ -63,3 +63,5 @@ cd ~/catkin_ws/src
 git clone https://github.com/RM-NAGOYASHACHIHOKO/auto_aim
 catkin build
 ```
+変更等の作業を行う場合は[GitHubフローに従って](https://docs.github.com/ja/get-started/using-github/github-flow#github-%E3%83%95%E3%83%AD%E3%83%BC%E3%81%AB%E5%BE%93%E3%81%86)ください  
+gitの導入が済んでない人は[git,githubの導入](https://rm-nagoyashachihoko.github.io/TeamWiki/docs/%E5%88%B6%E5%BE%A1/%E5%90%84%E7%A8%AE%E5%B0%8E%E5%85%A5/git,github%E3%81%AE%E5%B0%8E%E5%85%A5.html)へ  
