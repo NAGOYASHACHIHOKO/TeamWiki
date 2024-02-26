@@ -7,7 +7,7 @@ nav_order: 3
 ---
 # WSL,ROSの導入  
 自動照準に用いているrosをLinux機以外でも行うため、WSLの活用をしています。  
-メイン機がLinuxの人は[ROSの導入](https://rm-nagoyashachihoko.github.io/TeamWiki/docs/%E5%88%B6%E5%BE%A1/%E5%90%84%E7%A8%AE%E5%B0%8E%E5%85%A5/WSL,ROS%E3%81%AE%E5%B0%8E%E5%85%A5.html#ROS%E3%81%AE%E5%B0%8E%E5%85%A5)まで飛ばしてください。  
+メイン機がLinuxの人は[ROSの導入](https://rm-nagoyashachihoko.github.io/TeamWiki/docs/%E5%88%B6%E5%BE%A1/%E5%90%84%E7%A8%AE%E5%B0%8E%E5%85%A5/WSL,ROS%E3%81%AE%E5%B0%8E%E5%85%A5.html#ros%E3%81%AE%E5%B0%8E%E5%85%A5)まで飛ばしてください。  
 
 ## WSLの導入  
 [公式ページ](https://learn.microsoft.com/ja-jp/windows/wsl/install)  
