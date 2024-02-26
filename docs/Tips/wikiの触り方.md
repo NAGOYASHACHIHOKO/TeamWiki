@@ -1,7 +1,7 @@
 ---
 layout: default
 title: wikiの触り方
-nav_order: 3
+nav_order: 4
 parent: Tips
 has_children: true 
 ---
